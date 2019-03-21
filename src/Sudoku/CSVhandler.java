@@ -40,7 +40,7 @@ public class CSVhandler {
 			if (printOut) {
 				e.printStackTrace();
 			} else {
-				JOptionPane.showMessageDialog(null, "File could not be saved! \n Errormessage: " + e.getMessage() + " \n You may have to create the folder 'temp' first.");
+				JOptionPane.showMessageDialog(null, "File could not be saved! \n Errormessage: " + e.getMessage());
 			}
 		}
 
