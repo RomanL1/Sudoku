@@ -1,6 +1,6 @@
 package sudoku;
 
-import java.util.Random;
+import javax.swing.JOptionPane;
 
 public class Main {
 	public static void main(String[] args) {
@@ -12,5 +12,6 @@ public class Main {
 		System.out.println(s.print());
 		
 		CSVhandler.exportSolutionCSV(s.getSudoku(), false);
+		CSVhandler.exportNormalCSV(s.getSudoku(), false);
 	}
 }
