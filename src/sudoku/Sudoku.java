@@ -1,4 +1,4 @@
-package Sudoku;
+package sudoku;
 
 import java.util.Random;
 
@@ -15,10 +15,6 @@ public class Sudoku {
 
 	public int[][] getSudoku() {
 		return sudoku;
-	}
-
-	public void setSudoku(int[][] sudoku) {
-		this.sudoku = sudoku;
 	}
 
 	public int[][] generateArray() {
@@ -172,13 +168,6 @@ public class Sudoku {
 	private int[][] fillRowWithZeros(int[][] array, int row) {
 		for (int i = 0; i < 9; i++) {
 			array[row][i] = 0;
-		}
-		return array;
-	}
-
-	private int[][] fillColWithZeros(int[][] array, int col) {
-		for (int i = 0; i < 9; i++) {
-			array[i][col] = 0;
 		}
 		return array;
 	}
