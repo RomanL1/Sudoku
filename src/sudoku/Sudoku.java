@@ -4,17 +4,25 @@ import java.util.Random;
 
 public class Sudoku {
 	private int[][] sudoku;
+  private final long seed;
 
-	public Sudoku() {
+  public Sudoku() {
+    this(System.nanoTime());
+  }
+
+	public Sudoku(long seed) {
+	  this.seed = seed;
+	  Random rd = new Random(seed);
+
 	  int count = 0;
     this.sudoku = new int[9][9];
 
     boolean b;
     for (int i = 0; i < 9; i++) {
       for (int j = 0; j < 9; j++) {
-        int r = Sudoku.getRandom();
+        int r = rd.nextInt(9) + 1;
         while (b = this.allContainsN(j, i, r)) {
-          r = Sudoku.getRandom();
+          r = rd.nextInt(9) + 1;
           count++;
           if (count > 50) {
             count = 0;
@@ -34,11 +42,15 @@ public class Sudoku {
 
 	}
 
-	public int[][] getArray() {
-		return this.sudoku;
-	}
+	public int[][] getArray() { return this.sudoku; }
 
-	@Override public String toString() {
+  /**
+   * Returns the seed with which the sudoku was generated.
+   * @return the seed
+   */
+  public long getSeed() { return this.seed; }
+
+  @Override public String toString() {
 		StringBuilder str = new StringBuilder();
 		int countCol = 0;
 		int countRow = 0;
@@ -97,13 +109,4 @@ public class Sudoku {
 	private void fillRowWithZeros(int row) {
 		this.sudoku[row] = new int[9];
 	}
-
-	/**
-	 * Returns a random int between 1 and 9.
-	 * @return
-	 */
-	private static int getRandom() {
-		return new Random().nextInt(9) + 1;
-	}
-
 }
